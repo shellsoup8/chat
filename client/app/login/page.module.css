@@ -1,0 +1,101 @@
+.page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+  animation: flicker 8s infinite;
+}
+
+.crt {
+  pointer-events: none;
+  position: absolute; inset: 0; z-index: 50;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.07) 2px, rgba(0,0,0,.07) 4px);
+}
+.scanline {
+  pointer-events: none;
+  position: absolute; left: 0; right: 0; height: 100px;
+  background: linear-gradient(transparent, rgba(0,255,157,.04), transparent);
+  z-index: 51;
+  animation: scanMove 5s linear infinite;
+}
+
+.spinner {
+  width: 32px; height: 32px;
+  border: 2px solid var(--border);
+  border-top-color: var(--green);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+
+.terminal {
+  width: min(480px, 92vw);
+  background: #060d06;
+  border: 1px solid var(--green-dark);
+  border-radius: 6px;
+  box-shadow: 0 0 60px #00ff9d18, 0 0 120px #00ff9d08;
+  overflow: hidden;
+  animation: fadeUp .4s ease;
+  position: relative; z-index: 10;
+}
+
+.termHeader {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 16px;
+  background: #0a0f0a;
+  border-bottom: 1px solid var(--green-dark);
+}
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.termTitle { font-size: 11px; letter-spacing: 2px; color: var(--green-dim); margin-left: 6px; }
+
+.termBody {
+  padding: 24px 28px 28px;
+  min-height: 260px;
+  display: flex; flex-direction: column; gap: 3px;
+}
+
+.bootLine {
+  font-size: 13px; color: var(--green-dim);
+  letter-spacing: .5px; line-height: 1.9;
+  animation: fadeUp .25s ease both;
+}
+.bootLine:last-of-type { color: var(--green); }
+
+.authSection { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; animation: fadeUp .3s ease; }
+
+.errorBox {
+  font-size: 11px; color: var(--red);
+  border: 1px solid #3a0000;
+  background: #1a0000;
+  padding: 8px 12px;
+  border-radius: 2px;
+  letter-spacing: 1px;
+}
+
+.authLabel { font-size: 10px; color: var(--green-dim); letter-spacing: 3px; margin-bottom: 2px; }
+
+.oauthBtn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: #0a0f0a;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  transition: all .15s;
+}
+.oauthBtn:hover {
+  border-color: var(--green);
+  background: #0d1f0d;
+  color: var(--green);
+  box-shadow: 0 0 16px #00ff9d22;
+}
+
+.githubBtn { margin-top: 0; }
+
+.disclaimer { font-size: 10px; color: #2a4a3a; letter-spacing: 1px; margin-top: 4px; text-align: center; }

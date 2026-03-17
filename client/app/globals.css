@@ -1,0 +1,33 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #0a0a0a;
+  --bg-panel:   #0a0f0a;
+  --border:     #1a3a1a;
+  --green:      #00ff9d;
+  --green-dim:  #3a6a4a;
+  --green-dark: #1a3a1a;
+  --amber:      #ffcc00;
+  --red:        #ff6b6b;
+  --text:       #c8ffd4;
+  --text-muted: #4a8a5a;
+  --font-mono:  'Share Tech Mono', monospace;
+  --font-vt:    'VT323', monospace;
+}
+
+html, body { height: 100%; background: var(--bg); color: var(--text); font-family: var(--font-mono); }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--green-dim); }
+
+@keyframes flicker  { 0%,100%{opacity:1} 92%{opacity:.97} 94%{opacity:.93} 96%{opacity:.98} }
+@keyframes scanMove { 0%{top:-10%} 100%{top:110%} }
+@keyframes blink    { 0%,100%{opacity:.2} 50%{opacity:1} }
+@keyframes pulse    { 0%,100%{box-shadow:0 0 6px #00ff9d44} 50%{box-shadow:0 0 20px #00ff9daa} }
+@keyframes fadeUp   { from{transform:translateY(8px);opacity:0} to{transform:translateY(0);opacity:1} }
+@keyframes slideIn  { from{transform:translateX(-6px);opacity:0} to{transform:translateX(0);opacity:1} }
+@keyframes cursor   { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes glow     { 0%,100%{text-shadow:0 0 8px var(--green)} 50%{text-shadow:0 0 22px var(--green),0 0 44px var(--green)} }
+@keyframes spin     { to{transform:rotate(360deg)} }
